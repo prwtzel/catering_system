@@ -14,9 +14,14 @@
 
 <!-- HERO SECTION -->
 <div class="hero">
-    <h1>🍽️ FLORES Catering Services</h1>
-    <p>Make your events unforgettable with our delicious food</p>
+    <h1>🍽️  EVENT BOOKER</h1>
+    <p>Make your events unforgettable</p>
 </div>
+<?php if (isset($_GET['success'])): ?>
+    <div class="alert alert-success text-center">
+        🎉 Booking Successfully Saved!
+    </div>
+<?php endif; ?>
 
 <!-- BOOKING FORM -->
 <div class="container mt-5 mb-5">
@@ -25,7 +30,7 @@
         <div class="col-md-8">
             <div class="card shadow-lg p-4">
 
-                <h3 class="text-center mb-4">📅 Book Our Catering Service</h3>
+                <h3 class="text-center mb-4">📅 Book  EVENT</h3>
 
                 <form action="save_booking.php" method="post">
 
@@ -48,7 +53,8 @@
 
                         <div class="col-md-6 mb-3">
                             <label>Number of Guests</label>
-                            <input name="guests" type="number" class="form-control" placeholder="e.g. 100" required>
+                           <input id="guests" name="guests" type="number" class="form-control" placeholder="e.g. 100" required>
+                           <p id="totalDisplay" class="mt-2 text-success fw-bold"></p>
                         </div>
 
                         <!-- NEW FIELD -->
@@ -81,5 +87,18 @@
 
     </div>
 </div>
+ <script>
+document.getElementById('guests').addEventListener('input', function() {
+    let guests = this.value;
+    let pricePerGuest = 500;
 
+    if (guests > 0) {
+        let total = guests * pricePerGuest;
+        document.getElementById('totalDisplay').innerHTML =
+            "Estimated Price: ₱" + total.toLocaleString();
+    } else {
+        document.getElementById('totalDisplay').innerHTML = "";
+    }
+});
+</script>
 <?php include 'footer.php'; ?>

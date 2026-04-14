@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Booking Error: " . $conn->error);
     }
 
-    echo "SUCCESS SAVED!";
+    header("Location: book.php?success=1");
+exit();
 }
 ?>

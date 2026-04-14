@@ -5,5 +5,6 @@
     <a href="dashboard.php">🏠 Dashboard</a>
     <a href="add_booking.php">➕ Add Booking</a>
     <a href="bookings.php">📋 Bookings</a>
+    <a href="reports.php">reports</a>
     <a href="logout.php">🚪 Logout</a>
 </div>
